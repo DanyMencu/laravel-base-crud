@@ -22,3 +22,6 @@ Route::get('/index', 'ComicController@index')->name('comics_list');
 
 //*New comics page
 Route::get('/create', 'ComicController@create')->name('new_comic');
+
+//*Comic details
+Route::get('/show', 'ComicController@show')->name('show_comic');
