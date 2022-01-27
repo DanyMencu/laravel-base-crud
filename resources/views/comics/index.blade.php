@@ -4,6 +4,13 @@
 <section>
     <div class="container">
         <h1>Comics List</h1>
+
+        @if (session('deleted'))
+            <div class="alert alert-danger">
+                <h4>{{ session('deleted') }}</h4>
+            </div>
+        @endif
+
         <table class="table table-striped">
             <thead class="table-dark">
                 <tr>
