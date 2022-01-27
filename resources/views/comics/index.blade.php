@@ -11,7 +11,7 @@
                     <td>Title</td>
                     <td>Price</td>
                     <td>Type</td>
-                    <td colspan="2">Action</td>
+                    <td colspan="3">Action</td>
                 </tr>
             </thead>
 
@@ -24,8 +24,14 @@
                         <td>{{ $comic->type }}</td>
                         <td>
                             <a class="btn btn-primary"
-                            href="{{ route('comics.show',$comic->id) }}">
+                            href="{{ route('comics.show', $comic->id) }}">
                                 Show Details
+                            </a>
+                        </td>
+                        <td>
+                            <a class="btn btn-success"
+                            href="{{ route('comics.edit', $comic->id) }}">
+                                Edit
                             </a>
                         </td>
                     </tr>

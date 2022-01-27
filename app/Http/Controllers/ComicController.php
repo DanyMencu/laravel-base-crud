@@ -64,10 +64,10 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Comic $comic)
     {
         //*Show comic information
-        $comic = Comic::find($id);
+        /* $comic = Comic::find($id); */
         
         if($comic) {
             return view('comics.show', compact('comic'));
@@ -84,7 +84,13 @@ class ComicController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comic = Comic::find($id);
+
+        if ($comic) {
+            return view('comics.edit', compact('comic'));
+        }
+
+        abort(404);
     }
 
     /**
@@ -96,7 +102,13 @@ class ComicController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $new_data = $request->all();
+
+        $comic = Comic::find($id);
+
+        $comic->update($new_data);
+
+        return redirect()->route('comics.show', $comic->id);
     }
 
     /**
