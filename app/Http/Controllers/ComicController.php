@@ -17,6 +17,10 @@ class ComicController extends Controller
     //*Comics list
         $comics = Comic::all();
 
+        //Pagination
+        /* $comics = Comic::simplePaginate(5); */
+        $comics = Comic::paginate(4);
+
         return view('comics.index', compact('comics'));
     }
 

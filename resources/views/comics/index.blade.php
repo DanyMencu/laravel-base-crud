@@ -7,11 +7,12 @@
 
         @if (session('deleted'))
             <div class="alert alert-danger">
-                <h4>{{ session('deleted') }}</h4>
+                <strong>{{ session('deleted') }}</strong>
+                : it was edeleted
             </div>
         @endif
 
-        <table class="table table-striped">
+        <table class="table table-striped mb-4">
             <thead class="table-dark">
                 <tr>
                     <td>Id</td>
@@ -54,6 +55,7 @@
             </tbody>
         </table>
 
+        {{ $comics->links() }}
     </div>
 </section>
 @endsection
