@@ -11,7 +11,7 @@
                     <td>Title</td>
                     <td>Price</td>
                     <td>Type</td>
-                    <td colspan="3">Action</td>
+                    <td colspan="3" class="text-center">Action</td>
                 </tr>
             </thead>
 
@@ -33,6 +33,14 @@
                             href="{{ route('comics.edit', $comic->id) }}">
                                 Edit
                             </a>
+                        </td>
+                        <td>
+                            <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+
+                                <input type="submit" class="btn btn-danger" value="Delete">
+                            </form>
                         </td>
                     </tr>
                 @endforeach
